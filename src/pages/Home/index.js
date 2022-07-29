@@ -8,7 +8,7 @@ function Home(){
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
-       fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=en-US&page=1`)
+       fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=pt-BR&page=100`)
        .then(response => response.json())
        .then(data => setMovies(data.results))
     
@@ -22,7 +22,7 @@ function Home(){
                     return (
                         <Movie key={movie.id}>
                             <Link to={`/details/${movie.id}`}><img src={`${image_path}${movie.poster_path}`} alt={movie.title}/></Link>
-                            <span>{movie.original_title}</span>
+                            <span>{movie.title}</span>
                         </Movie>
                     )
                 })}
